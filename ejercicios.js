@@ -193,9 +193,26 @@ let arrayMixto = ["Marie", 24, "Pol", 18, "Judith", 22, "Eva", 28]
 // 9) Debes obtener otro array llamado arrayBidimensional que sea así­:
 // [ ["Marie", 24 ], ["Pol", 18], ["Judith", 22 ], [ "Eva", 28] ]
 function obtenerArrayBidimensional(array) {
-    
+    let nombres = []
+    let edades = []
+    let arrayBidimensional = []
+    for (let i = 0; i < array.length; i++) {
+        if (i % 2 == 0) {
+            nombres.push(array[i])
+        } else {
+            edades.push(array[i])
+        }
+    }
+    for (let i = 0; i < nombres.length; i++) {
+        arrayBidimensional.push(nombres[i], edades[i])
+    }
+    console.log(nombres)
+    console.log(edades)
+    console.log(arrayBidimensional)
 }
 
+console.log(obtenerArrayBidimensional(arrayMixto)
+)
 
 // 10) A partir de un array como el que has obtenido en el ejercicio 9,
 // debes resolver los ejercios 1, 2, 3 y 4
