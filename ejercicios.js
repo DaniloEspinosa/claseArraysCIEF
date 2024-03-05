@@ -75,11 +75,12 @@ console.log(sumarIndicesParesRestarImpares(arrayNumeros3))
 function sumarParesRestarImpares(array) {
     let pares = 0
     let impares = 0
-    for (let i = 0; i < array.length; i = i + 2) {
-        pares += array[i]
-    }
-    for (let i = 1; i < array.length; i = i + 2) {
-        impares -= array[i]
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] % 2 == 0) {
+            pares += array[i]
+        } else {
+            impares -= array[i]
+        }
     }
     return `La suma de pares es ${pares} y la resta de impares es ${impares}`
 }
@@ -89,7 +90,7 @@ console.log(sumarParesRestarImpares(arrayNumeros3))
 // Hay que mostrar por consola cada resultado
 
 // Dado estos arrays:
-let arrayNombres1 = ["Federico", "Kayén", "Luís", "Mónica", "Nicolás", "Ricardo", "Sara", "Stephanie", "Yahved","Jo"]
+let arrayNombres1 = ["Federico", "Kayén", "Luís", "Mónica", "Nicolás", "Ricardo", "Sara", "Stephanie", "Yahved", "Jo"]
 let arrayNombres2 = ["Clint", "Robert", "James", "Anne", "Ingrid", "John", "Patricia", "Marie",]
 let arrayNombres3 = ["Clint", "Robert", "James", "Ingrid", "John", "Patricia", "Marie", "Patricio"]
 
@@ -118,7 +119,7 @@ function textoMasLargo(array) {
         Hay mas de un valor mas largo y son: ${arrayTextosMasLargos}.
         `
     } else {
-    return `El texto mas largo es ${varTextoMasLargo} y tiene ${varTextoMasLargo.length} caracteres.`
+        return `El texto mas largo es ${varTextoMasLargo} y tiene ${varTextoMasLargo.length} caracteres.`
     }
 }
 
@@ -149,7 +150,7 @@ function textoMasCorto(array) {
         Hay mas de un valor mas largo y son: ${arrayTextosMasCortos}.
         `
     } else {
-    return `El texto mas corto es ${varTextoMasCorto} y tiene ${varTextoMasCorto.length} caracteres.`
+        return `El texto mas corto es ${varTextoMasCorto} y tiene ${varTextoMasCorto.length} caracteres.`
     }
 }
 
@@ -162,7 +163,7 @@ console.log(textoMasCorto(arrayNombres3))
 // incluidos en cualquiera de los arrays anteriores. Por tanto debes mostrar : [ 8, 5, 4, etc.
 function obtenerLongitudNombres(array) {
     let longitudNombres = []
-    for (let i = 0; i < array.length; i++ ){
+    for (let i = 0; i < array.length; i++) {
         longitudNombres.push(array[i].length)
     }
     return longitudNombres
@@ -204,15 +205,84 @@ function obtenerArrayBidimensional(array) {
         }
     }
     for (let i = 0; i < nombres.length; i++) {
-        arrayBidimensional.push(nombres[i], edades[i])
+        arrayBidimensional.push([nombres[i], edades[i]])
     }
-    console.log(nombres)
-    console.log(edades)
-    console.log(arrayBidimensional)
+    return arrayBidimensional
 }
 
-console.log(obtenerArrayBidimensional(arrayMixto)
-)
+let arrayBidimensional = obtenerArrayBidimensional(arrayMixto)
+console.log(arrayBidimensional)
+
 
 // 10) A partir de un array como el que has obtenido en el ejercicio 9,
 // debes resolver los ejercios 1, 2, 3 y 4
+
+// 10 - 1
+function sumarValoresDeArrayBidimensionalPropuesto(array) {
+    let suma = 0
+    for (let i = 0; i < array.length; i++) {
+        suma += array[i][1]
+    }
+    return suma
+}
+console.log(sumarValoresDeArrayBidimensionalPropuesto(arrayBidimensional))
+
+// 10 - 2
+function promedioValoresDeArrayBidimensionalPropuesto(array) {
+    let suma = 0
+    for (let i = 0; i < array.length; i++) {
+        suma += array[i][1]
+    }
+    return suma / array.length
+}
+console.log(promedioValoresDeArrayBidimensionalPropuesto(arrayBidimensional))
+
+// 10 - 3
+function maximoMinimoBidimensional(array) {
+    let max = array[0][1]
+    let min = array[0][1]
+    for (let i = 0; i < array.length; i++) {
+        if (array[i][1] > max) {
+            max = array[i][1]
+        }
+    }
+    for (let i = 0; i < array.length; i++) {
+        if (array[i][1] < min) {
+            min = array[i][1]
+        }
+    }
+    return `el maximo es ${max} y el minimo es ${min}`
+}
+console.log(maximoMinimoBidimensional(arrayBidimensional))
+
+// 10 - 4 - a
+function sumarIndicesParesRestarImparesBidimensional(array) {
+    let pares = 0
+    let impares = 0
+    for (let i = 0; i < array.length; i = i + 2) {
+        pares += array[i][1]
+    }
+    for (let i = 1; i < array.length; i = i + 2) {
+        impares -= array[i][1]
+    }
+    return `La suma de las posiciones pares es ${pares} y la resta de posiciones impares es ${impares}`
+}
+console.log(sumarIndicesParesRestarImparesBidimensional(arrayBidimensional))
+
+// 10 - 4 - b
+function sumarParesRestarImparesBidimensional(array) {
+    let pares = 0
+    let impares = 0
+    for (let i = 0; i < array.length; i++) {
+        if (array[i][1] % 2 == 0) {
+            pares += array[i][1]
+        } else {
+            impares -= array[i][1]
+        }
+
+    }
+    console.log(pares)
+    console.log(impares)
+    return `La suma de pares es ${pares} y la resta de impares es ${impares}`
+}
+console.log(sumarParesRestarImparesBidimensional(arrayBidimensional))
