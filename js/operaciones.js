@@ -24,24 +24,18 @@ if (num1 % num2 === 0) {
 } else {
     console.log(`${num1} no es multiplo de ${num2}`)
 }
+const array = [2,4,5,3,2,14,56,32]
 
-let array = [4, 5, 3, 8]
-console.log(array)
-
-let mensajePares = "Los números en posicion par son: "
-let mensajeImpares = "Los números en posicion impar son: "
-console.log(mensajePares)
-console.log(mensajeImpares)
+let pares = "Los números en posicion par son: "
+let impares = "Los números en posicion impar son: "
 
 // for (let i = 0; array.length; i++) {
 //     if (i % 2 == 0) {
-//         mensajePares += array[i] + ", "
-//     } else {
-//         mensajeImpares += array[i] + ", "
+//         console.log(array[i])
 //     }
 // }
-// console.log(mensajePares)
-// console.log(mensajeImpares)
+// console.log(pares)
+// console.log(impares)
 
 // let mensajeNumerosPares = "Los números pares son: "
 // let mensajeNumerosImpares = "Los números impares son: "
